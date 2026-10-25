@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Galeri Karya Siswa | SMK Plus Umar Zahid</title>
+
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Font dan ikon profesional -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+	<!-- HEADER DAN MENU -->
+	<header class="header">
+		<a href="#beranda" class="brand">
+			<img src="assets/logo-sekolah.png"
+				 alt="Logo sekolah"
+				 class="logo"
+				 onerror="this.style.display='none'">
+
+			<div>
+				<h3>SMK PLUS UMAR ZAHID</h3>
+				<p>GALERI KARYA SISWA</p>
+			</div>
+		</a>
+
+		<button class="menu-toggle" id="menuToggle"
+				aria-label="Buka menu">
+			<i class="fa-solid fa-bars"></i>
+		</button>
+
+		<nav id="mainNav">
+			<a href="#beranda">Beranda</a>
+			<a href="#galeri">Jelajahi Karya</a>
+			<a href="#unggah">Unggah Karya</a>
+			<a href="#tentang">Tentang</a>
+		</nav>
+	</header>
+
+	<!-- HALAMAN DEPAN -->
+	<main>
+		<section class="hero" id="beranda">
+			<div class="hero-text">
+				<span class="label">RUANG KREATIVITAS SISWA</span>
+
+				<h1>
+					Ide Hebat,<br>
+					<span>Karya Nyata.</span>
+				</h1>
+
+				<p>
+					Temukan kreativitas, keterampilan, dan inovasi
+					siswa SMK Plus Umar Zahid dalam satu galeri digital.
+				</p>
+
+				<div class="hero-buttons">
+					<a href="#unggah" class="btn btn-primary">
+						<i class="fa-solid fa-cloud-arrow-up"></i>
+						Unggah Karya
+					</a>
+
+					<a href="#galeri" class="btn btn-outline">
+						Jelajahi Karya
+						<i class="fa-solid fa-arrow-right"></i>
+					</a>
+				</div>
+			</div>
+
+			<div class="hero-image">
+				<img
+					src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
+					alt="Siswa berkolaborasi menggunakan komputer">
+			</div>
+		</section>
+
+		<!-- STATISTIK -->
+		<section class="stats">
+			<div>
+				<h2 id="totalKarya">0</h2>
+				<p>Total Karya</p>
+			</div>
+
+			<div>
+				<h2 id="totalSiswa">0</h2>
+				<p>Siswa Berkontribusi</p>
+			</div>
+
+			<div>
+				<h2 id="totalMapel">0</h2>
+				<p>Mata Pelajaran</p>
+			</div>
+		</section>
+
+		<!-- GALERI KARYA -->
+		<section class="section" id="galeri">
+			<div class="section-heading">
+				<span class="label">GALERI SEKOLAH</span>
+				<h2>Karya yang Menginspirasi</h2>
+				<p>Jelajahi karya terbaik siswa dari berbagai kelas.</p>
+			</div>
+
+			<div class="gallery-tools">
+				<input type="search" id="searchInput"
+					   placeholder="Cari judul atau nama siswa...">
+
+				<select id="filterKelas">
+					<option value="">Semua Kelas</option>
+				</select>
+
+				<select id="filterMapel">
+					<option value="">Semua Mapel</option>
+				</select>
+			</div>
+
+			<div class="gallery-grid" id="galleryGrid"></div>
+			<p id="emptyMessage" hidden>Karya tidak ditemukan.</p>
+		</section>
+
+		<!-- FORM UNGGAH -->
+		<section class="section upload-section" id="unggah">
+			<div class="section-heading">
+				<span class="label">BAGIKAN KREATIVITASMU</span>
+				<h2>Unggah Karya Siswa</h2>
+				<p>Isi informasi karya dengan lengkap.</p>
+			</div>
+
+			<form id="uploadForm">
+				<label>
+					Judul Karya
+					<input name="judul" type="text" required>
+				</label>
+
+				<label>
+					Nama Siswa
+					<input name="nama" type="text" required>
+				</label>
+
+				<label>
+					Kelas
+					<select name="kelas" id="kelasInput" required>
+						<option value="">Pilih kelas</option>
+					</select>
+				</label>
+
+				<label>
+					Mata Pelajaran
+					<select name="mapel" id="mapelInput" required>
+						<option value="">Pilih mata pelajaran</option>
+					</select>
+				</label>
+
+				<label>
+					Tipe Media
+					<select name="tipe" required>
+						<option value="">Pilih tipe media</option>
+						<option>Gambar/Desain</option>
+						<option>Tulisan/Artikel</option>
+						<option>Dokumen/PDF</option>
+						<option>Video</option>
+						<option>Audio</option>
+						<option>Aplikasi/Koding</option>
+					</select>
+				</label>
+
+				<label>
+					Deskripsi Karya
+					<textarea name="deskripsi" rows="4" required></textarea>
+				</label>
+<div class="form-group">
+  <label for="fileKarya">Pilih File dari Komputer</label>
+  <input
+    type="file"
+    id="fileKarya"
+    name="fileKarya"
+    accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.zip"
+    required
+  />
+  <small>
+    Format yang didukung: gambar, PDF, Word, PowerPoint, dan ZIP.
+  </small>
+</div>
+				<button class="btn btn-primary" type="submit">
+					Simpan Karya Demo
+				</button>
+
+				<p id="formMessage"></p>
+			</form>
+
+			<p class="notice">
+				Catatan: formulir ini untuk demo lokal. Data belum
+				tersimpan di server dan belum bisa dibagikan ke perangkat lain.
+			</p>
+		</section>
+
+		<!-- TENTANG -->
+		<section class="section about" id="tentang">
+			<span class="label">TENTANG KAMI</span>
+			<h2>Ruang Tumbuh Karya Siswa</h2>
+			<p>
+				Galeri digital untuk menampilkan hasil belajar,
+				kreativitas, dan inovasi siswa SMK Plus Umar Zahid.
+			</p>
+		</section>
+	</main>
+
+	<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <h3>SMK Plus Umar Zahid</h3>
+    <p>Galeri Karya & Inovasi Siswa</p>
+
+    <div class="developer-info">
+      <span>Website dikembangkan oleh:</span>
+      <strong>Moh. Abdurrohman Assadil Azam, Hanum Rinjani</strong>
+      <span>Kelas XI TKJ</span>
+    </div>
+    <p class="copyright">
+      ©2026, Project HTML, Javascript, CSS
+    </p>
+    <p>Karya Siswa SMK Plus Umar Zahid</p>
+  </div>
+	</footer>
+	<script src="js/script.js"></script>
+</body>
+</html>
